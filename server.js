@@ -1,14 +1,15 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
 
 var db, collection;
+const dbName = "savagedemo";
+const url =
+  `mongodb+srv://abdullahidev:Github12@cluster0.rasf3io.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
-const url = "mongodb+srv://demo:demo@cluster0-q2ojb.mongodb.net/test?retryWrites=true";
-const dbName = "demo";
 
-app.listen(3000, () => {
+  app.listen(3600, () => {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
@@ -59,3 +60,4 @@ app.delete('/messages', (req, res) => {
     res.send('Message deleted!')
   })
 })
+
